@@ -14,12 +14,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="play-me">
+        <div class="login__section">
             <h1>Gioco del dado</h1>
-            <div class="login">
+            <div class="login__form">
                 <input id="user-name" type="email">
-                <button id="btn-play">Inizia la sfida!</button>
+                <button id="btn-login">Login</button>
             </div>
+        </div>
+        <div class="play-me hidden">
+            <button id="btn-play">Lancia il dado!</button>
+            <div class="dice">
+                <div class="user-number"></div>
+                <div class="random-number"></div>
+            </div>
+            <div class="result"></div>
         </div>
     </div>
 

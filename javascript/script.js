@@ -18,34 +18,54 @@ IL LAYOUT GRAFICO È ANCORA DA FINIRE MA LA LOICA DI JS FUNZIONA.
 
 const userMail = document.getElementById('user-name');
 const myMailArray = ['lucrezia.lorem@gmail.com', 'marco.ipsum@live.com', 'federico.dolor@icloud.com'];
-const btnPlay = document.getElementById('btn-play');
-console.log('sono il bottone:', btnPlay);
 
-// const eleLogin = document.getElementsByClassName('.play-me');
-// console.log('sono il login', eleLogin);
+const eleLogin = document.querySelector('.login__section');
+console.log('sono il login', eleLogin); //DEBUG
+const btnLogin = document.getElementById('btn-login');
+console.log('sono il bottone di login:', btnLogin); //DEBUG
+
+const elePlay = document.querySelector('.play-me');
+const eleUser = document.querySelector('.user-number');
+const eleRandom = document.querySelector('.random-number');
+console.log('qui va il numero dell\'utente:',eleUser, 'qui va il numero del pc:',eleRandom) //DEBUG
+const eleResult = document.querySelector('.result');
 
 
-btnPlay.addEventListener('click', function(){
+
+btnLogin.addEventListener('click', function(){
     
     if (myMailArray.includes(userMail.value)) {
-        console.log('puoi giocare');
-
-        // eleLogin.classList.add('hidden');
-    
-        const userNum = parseInt(Math.floor(Math.random() * (7 - 1)) + 1);
-        console.log(userNum);
-        const randomNum = parseInt(Math.floor(Math.random() * (7 - 1)) + 1);
-        console.log(randomNum);
+        console.log('puoi giocare'); //DEBUG
         
-        if (userNum > randomNum){
-            console.log('Hai vinto!');
+        eleLogin.classList.add('hidden');
+        elePlay.classList.remove('hidden');
+        
+        const btnPlay = document.getElementById('btn-play');
+        
+        btnPlay.addEventListener('click', function(){
+            
+            const userNum = parseInt(Math.floor(Math.random() * (7 - 1)) + 1);
+            eleUser.innerHTML = userNum;
+            const randomNum = parseInt(Math.floor(Math.random() * (7 - 1)) + 1);
+            eleRandom.innerHTML = randomNum;
 
-        } else if (userNum == randomNum) {
-            console.log('Pareggio!');
+            console.log('Numero utente:',userNum,'Numero computer:',randomNum); //DEBUG
+            
+            if (userNum > randomNum){
+                eleResult.innerHTML = 'Hai vinto!'
+                console.log('Hai vinto!');
+    
+            } else if (userNum == randomNum) {
+                eleResult.innerHTML = 'Pareggio, ritenta!'
+                console.log('Pareggio!');
+    
+            } else {
+                eleResult.innerHTML = 'Hai Perso!'
+                console.log('Hai perso!')
+            }
 
-        } else {
-            console.log('Hai perso!')
-        }
+        })
+
     } else {
         console.log('Email non valida, inserisci l\'email valida per poter giocare.');
     }
