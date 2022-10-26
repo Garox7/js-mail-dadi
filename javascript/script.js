@@ -11,9 +11,7 @@ SE ciò è verificato:
         ALTRIMENTI:
             Perde.
 
-ALTRIMENTI non potrà giocare.
-
-IL LAYOUT GRAFICO È ANCORA DA FINIRE MA LA LOICA DI JS FUNZIONA.
+ALTRIMENTI non potrà giocare
 */
 
 const userMail = document.getElementById('user-name');
@@ -23,10 +21,12 @@ const eleLogin = document.querySelector('.login__section');
 console.log('sono il login', eleLogin); //DEBUG
 const btnLogin = document.getElementById('btn-login');
 console.log('sono il bottone di login:', btnLogin); //DEBUG
+const loginFailure = document.querySelector('.login__fail');
 
-const elePlay = document.querySelector('.play-me');
-const eleUser = document.querySelector('.user-number');
-const eleRandom = document.querySelector('.random-number');
+const btnPlay = document.getElementById('btn-play');
+const elePlay = document.querySelector('.play__me');
+const eleUser = document.querySelector('.user__number');
+const eleRandom = document.querySelector('.random__number');
 console.log('qui va il numero dell\'utente:',eleUser, 'qui va il numero del pc:',eleRandom) //DEBUG
 const eleResult = document.querySelector('.result');
 
@@ -40,17 +40,15 @@ btnLogin.addEventListener('click', function(){
         eleLogin.classList.add('hidden');
         elePlay.classList.remove('hidden');
         
-        const btnPlay = document.getElementById('btn-play');
         
         btnPlay.addEventListener('click', function(){
             
             const userNum = parseInt(Math.floor(Math.random() * (7 - 1)) + 1);
-            eleUser.innerHTML = userNum;
             const randomNum = parseInt(Math.floor(Math.random() * (7 - 1)) + 1);
+            eleUser.innerHTML = userNum;
             eleRandom.innerHTML = randomNum;
-
             console.log('Numero utente:',userNum,'Numero computer:',randomNum); //DEBUG
-            
+
             if (userNum > randomNum){
                 eleResult.innerHTML = 'Hai vinto!'
                 console.log('Hai vinto!');
@@ -67,7 +65,7 @@ btnLogin.addEventListener('click', function(){
         })
 
     } else {
-        console.log('Email non valida, inserisci l\'email valida per poter giocare.');
+        loginFailure.innerHTML = 'Email non valida! inserisci un\'email valida per giocare.';
     }
 })
 

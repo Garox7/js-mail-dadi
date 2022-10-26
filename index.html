@@ -11,21 +11,33 @@
 
     <!-- style -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="bg-cover">
     <div class="container">
         <div class="login__section">
-            <h1>Gioco del dado</h1>
+            <h1 class="title">lancia il dado!</h1>
             <div class="login__form">
                 <input id="user-name" type="email">
-                <button id="btn-login">Login</button>
+                <button id="btn-login" class="btn">Login</button>
             </div>
+            <div class="login__fail"></div>
         </div>
-        <div class="play-me hidden">
-            <button id="btn-play">Lancia il dado!</button>
+        <div class="play__me hidden">
+            <h1 class="title">benvenuto, tocca a te!</h1>
+            <button id="btn-play" class="btn">Lancia il dado!</button>
             <div class="dice">
-                <div class="user-number"></div>
-                <div class="random-number"></div>
+                <div class="user__number">
+                </div>
+                <div class="random__number">
+                </div>
             </div>
             <div class="result"></div>
         </div>
